@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>E-Commerce Lite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <h1>E-Commerce Lite</h1>
+    <p>Multi-tier Internet application demo: frontend + REST API + database.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Login</h2>
+      <div class="grid">
+        <input id="email" placeholder="email" value="user@example.com">
+        <input id="password" placeholder="password" type="password" value="user123">
+        <button onclick="login()">Login</button>
+      </div>
+      <p id="loginMessage"></p>
+      <p class="hint">Demo admin: admin@example.com / admin123 — user: user@example.com / user123</p>
+    </section>
+
+    <section class="card">
+      <h2>Products</h2>
+      <div class="grid">
+        <input id="search" placeholder="search products">
+        <button onclick="loadProducts()">Load products</button>
+      </div>
+      <p id="productsMessage"></p>
+      <div id="products"></div>
+    </section>
+
+    <section class="card">
+      <h2>Create Product (Admin only)</h2>
+      <div class="grid">
+        <input id="pName" placeholder="name">
+        <input id="pPrice" placeholder="price" type="number">
+        <input id="pStock" placeholder="stock" type="number">
+        <input id="pDescription" placeholder="description">
+        <button onclick="createProduct()">Create product</button>
+      </div>
+      <p id="adminMessage"></p>
+    </section>
+
+    <section class="card">
+      <h2>My Orders</h2>
+      <button onclick="loadMyOrders()">Load my orders</button>
+      <div id="orders"></div>
+    </section>
+
+    <section class="card">
+      <h2>Health / Readiness</h2>
+      <button onclick="checkHealth()">Check /health</button>
+      <button onclick="checkReady()">Check /ready</button>
+      <pre id="healthOutput"></pre>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

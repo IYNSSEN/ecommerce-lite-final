@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URL=sqlite:////data/ecommerce.db
+      - JWT_SECRET=dev-secret-change-me
+      - CORS_ORIGIN=http://localhost:5173
+    volumes:
+      - ecommerce_data:/data
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "5173:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+
+volumes:
+  ecommerce_data:
